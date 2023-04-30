@@ -1,6 +1,8 @@
 # websockets-example
 Web sockets example built with Typescript + socket.io
 
+Running app on node v14.17.3
+
 1. Open 1st terminal in project root. Run cd server && npm run dev. You should run server app.
 2. Open 2st terminal in project root. Run cd client && npm run dev. You should run client app.
 3. Open 3 different browsers on http://127.0.0.1:5173/
