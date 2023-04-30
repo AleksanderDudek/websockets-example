@@ -15,7 +15,7 @@ function App() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(msg + ' '+ room + ' '+ username);
-    socket.emit("clientMsg", { msg, room, username});
+    socket.emit("clientMsg", { msg, room, username, date: (new Date()).toLocaleString(),});
     setMsg('');
     setRoom('');
   }
@@ -34,6 +34,7 @@ function App() {
     <>
     {isUsernameSet ? (<>
       <div>
+      <div>CURRENT USER: {username} </div>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Enter room key" value={room} onChange={e => setRoom(e.target.value)}/>
         <input type="text" placeholder="Enter message" value={msg} onChange={e => setMsg(e.target.value)}/>
@@ -44,7 +45,7 @@ function App() {
     <div>
       <h1>Messages</h1>
       {messages.map((msgEv: MessageEvent, i) => (
-        <p key={i}>[ROOM {msgEv.room}][USER {msgEv.username}] says: {msgEv.msg}</p>
+        <p key={i}>[ROOM {msgEv.room}] [TIME: {msgEv.date}] [USER {msgEv.username}] says: {msgEv.msg}</p>
       ))}
     </div>
     </>) : ( 
