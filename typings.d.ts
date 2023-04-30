@@ -1,12 +1,13 @@
 export interface ServerToClientEvents {
-    serverMsg: (data : {msg: string, room: string}) => void
+    serverMsg: (data : {msg: string, room: string, username: string}) => void
 }
 
 export interface ClientToServerEvents {
-    clientMsg: (data : {msg: string, room: string}) => void
+    clientMsg: (data : {msg: string, room: string, username: string}) => void
 }
 
 export type MessageEvent = {
     msg: string,
     room: string,
+    username: string,
 }
